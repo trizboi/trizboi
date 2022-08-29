@@ -1,0 +1,158 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/doge4life1303/AEA v1/main/source.lua"))()
+local Window = Library.CreateLib("AEA v1", "Ocean")
+
+--TOGGLES
+    local Toggles = Window:NewTab("Toggles")
+local TogglesSection = Toggles:NewSection("Toggles")
+
+
+TogglesSection:NewToggle("super-human", "walk fast and jump high", function(state)
+    if state then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
+    else
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    end
+end)
+
+
+
+TogglesSection:NewToggle("flash", "RUN!!!", function(state)
+    if state then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 500
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 70
+    else
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    end
+end)
+
+
+TogglesSection:NewToggle("Hulk", "jump and run like the hulk", function(state)
+    if state then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 90
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 300
+    else
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    end
+end)
+
+
+--MAIN
+    local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Main")
+
+
+MainSection:NewButton("INFjump", "Press F to stop jumping", function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "AEB";
+        Text = "- INFjump has been tured on- injoy.";
+        Icon = "rbxassetid://4414605822";
+        Duration = 3;
+    })
+     
+    _G.infinjump = true
+     
+    local Player = game:GetService("Players").LocalPlayer
+    local Mouse = Player:GetMouse()
+    Mouse.KeyDown:connect(function(k)
+    if _G.infinjump then
+    if k:byte() == 32 then
+    Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+    Humanoid:ChangeState("Jumping")
+    wait(0.1)
+    Humanoid:ChangeState("Seated")
+    end
+    end
+    end)
+     
+    local Player = game:GetService("Players").LocalPlayer
+    local Mouse = Player:GetMouse()
+    Mouse.KeyDown:connect(function(k)
+    k = k:lower()
+    if k == "r" then
+    if _G.infinjump == true then
+    _G.infinjump = false
+    else
+    _G.infinjump = true
+    end
+    end
+    end)
+    
+end)
+
+
+
+MainSection:NewButton("Admin", "Gives you admin", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+
+MainSection:NewButton("Free face(press v to close)", "Gives you free faces(headless and korblox is being fixed)", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxHackerProLuaStuff/avatar-editor-thing/main/headless.lua"))()
+end)
+
+
+MainSection:NewButton("FullBright", "See evrything brighter", function()
+    game.Lighting.FogEnd = 100000
+game.Lighting.FogStart = 0
+game.Lighting.ClockTime = 14
+game.Lighting.Brightness = 2
+game.Lighting.GlobalShadows = true
+end)
+
+
+
+MainSection:NewButton("noclip", "Press Q to turn on and Z to turn off", function()
+    noclip = false
+    game:GetService('RunService').Stepped:connect(function()
+    if noclip then
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+    end
+    end)
+    plr = game.Players.LocalPlayer
+    mouse = plr:GetMouse()
+    mouse.KeyDown:connect(function(key)
+     
+    if key == "z" then
+    noclip = not noclip
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+    end
+    end)
+    print('Loaded')
+    print('Press "Q" to noclip')
+end)
+
+
+
+--PLAYER
+
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Player")
+
+PlayerSection:NewSlider("Walkspeed", "Makes you speed 16-800", 800, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewSlider("JumpPower", "Make you jump 50-500", 500,50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+PlayerSection:NewButton("Reset WS/JP", "Resets to all defaults", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+end)
+
+
+-- MAIN KILL
+local kill all = Window:NewTab("kill all")
+local KillAllSection = KillAll:NewSection("kill all")
+
+
+
+
+local Kill aura = Window:NewTab("kill aura")
+local KIllAuraSection = KillAura:NewSection("aura")
+
